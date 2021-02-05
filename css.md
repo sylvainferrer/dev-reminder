@@ -26,17 +26,29 @@ appearance: none;
 ## Pulse Effect
 
 ``` css
-::before {    content: "";    position: absolute;    z-index: 0;    top: 50%;    left: 50%;    display: block;    width: 4.75rem;    height: 4.75rem;    border-radius: 50%;    background: #5f4dee;    animation: pulse-border 1500ms ease-out infinite;    transform: translate(-50%,-50%);
+::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 4.75rem;
+    height: 4.75rem;
+    border-radius: 50%;
+    background: #5f4dee;
+    transform: translate(-50%,-50%);
+    animation: pulse-border 1500ms ease-out infinite;
 }
   
 @keyframes pulse-border {
-	0% {
-		transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
-		opacity: 1;
-	}
-	100% {
-		transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
-		opacity: 0;
-	}
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
 }
 ```
