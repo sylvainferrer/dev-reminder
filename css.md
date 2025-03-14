@@ -86,7 +86,7 @@ box-shadow:
 ;
 ```
 
-## Layout
+## Layout CSS
 
 ``` css
 {% set gutter_width_percent = (16.6  * 100) / 1180 %}
