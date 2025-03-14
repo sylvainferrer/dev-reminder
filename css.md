@@ -85,3 +85,42 @@ box-shadow:
     0 100px 80px rgba(0, 0, 0, 0.12)
 ;
 ```
+
+## Layout
+
+``` css
+{% set gutter_width_percent = (16.6  * 100) / 1180 %}
+{% set column_width_percent = (100 - (gutter_width_percent * 11)) / 12 %}
+
+/* Responsive grid */
+.row-fluid {display:flex;flex-wrap: wrap;}
+.row-fluid [class*='span'] {margin-left: {{gutter_width_percent}}%;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;}
+.row-fluid [class*='span']:first-child {margin-left: 0;}
+.row-fluid .span12 {flex: 0 0 auto;width: 100%}
+.row-fluid .span11 {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 11) + ({{gutter_width_percent}}% * 10) );}
+.row-fluid .span10 {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 10) + ({{gutter_width_percent}}% * 9) );}
+.row-fluid .span9  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 9) + ({{gutter_width_percent}}% * 8) );}
+.row-fluid .span8  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 8) + ({{gutter_width_percent}}% * 7) );}
+.row-fluid .span7  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 7) + ({{gutter_width_percent}}% * 6) );}
+.row-fluid .span6  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 6) + ({{gutter_width_percent}}% * 5) );}
+.row-fluid .span5  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 5) + ({{gutter_width_percent}}% * 4) );}
+.row-fluid .span4  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 4) + ({{gutter_width_percent}}% * 3) );}
+.row-fluid .span3  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 3) + ({{gutter_width_percent}}% * 2) );}
+.row-fluid .span2  {flex: 0 0 auto;width: calc( ({{column_width_percent}}% * 2) + {{gutter_width_percent}}% );}
+.row-fluid .span1  {flex: 0 0 auto;width: {{column_width_percent}}%;}
+
+.container-fluid .row-fluid .wrapper,
+.wrapper {
+	margin: 0 auto;
+	max-width: var(--wrapper-max-width);
+	padding: var(--wrapper-padding)
+}
+
+@media (max-width: 768px) {
+  .row-fluid [class*='span'] {
+	  margin-left: 0;
+		flex-shrink: 0;
+		width: 100%;
+		max-width: 100%}
+}
+```
